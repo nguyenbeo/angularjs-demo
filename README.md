@@ -13,7 +13,7 @@ This demo is to create a simple blog with the following features:
 * Embedded Jetty
 
 # How to run
-* You can even run the index.html file directly
+* You can even run the index.html file directly without starting up server.
 
 * Run:
 

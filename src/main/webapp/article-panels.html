@@ -1,0 +1,41 @@
+<section>
+	<ul class="nav nav-pills">
+		<li ng-class="{active:panel.isSelected(1)}"><a href ng-click="panel.selectTab(1)">Statistic</a></li>
+		<li ng-class="{active:panel.isSelected(2)}"><a href ng-click="panel.selectTab(2)">Comments</a></li>
+	</ul>
+	<div class="panel" ng-show="panel.isSelected(1)">
+		<h4>Statistic</h4>
+		<p>Number of visits: {{article.noOfVisits}}</p>
+	</div>
+	<div class="panel" ng-show="panel.isSelected(2)">
+		<h4>Comments</h4>
+		<blockquote ng-repeat="comment in article.comments">
+			<b>{{comment.subject}}</b>
+			{{comment.body}}
+			- <cite>{{comment.author}}</cite>
+		</blockquote>
+		<div class="col-xs-12">
+			<form class="col-xs-4" name="commentForm" ng-controller="CommentController as commentCtrl"
+				ng-submit="commentForm.$valid && commentCtrl.addComment(article)" novalidate>
+				<blockquote>
+					<b>{{commentCtrl.comment.subject}}</b>
+					{{commentCtrl.comment.body}}
+					<cite>- {{commentCtrl.comment.author}}</cite>
+				</blockquote>
+				<fieldset class="form-group">
+					<input class="form-control" type="text" ng-model="commentCtrl.comment.subject" required/>
+				</fieldset>
+				<fieldset class="form-group">
+					<textarea class="form-control" ng-model="commentCtrl.comment.body" required></textarea>
+				</fieldset>
+				<fieldset class="form-group">
+					<input class="form-control" type="email" ng-model="commentCtrl.comment.author" required />
+				</fieldset>
+				<fieldset class="form-group">
+					<input class="btn btn-primary pull-right" type="submit" value="Submit" />
+				</fieldset>
+				<div>commentForm is {{commentForm.$valid}}</div>
+			</form>
+		</div>
+	</div>
+</section>

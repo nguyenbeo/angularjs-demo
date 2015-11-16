@@ -48,6 +48,8 @@
 	    }
 	];
 
+	// Controllers
+	// -----------
 	app.controller('BlogController', function($scope) {
 		$scope.currentDate = new Date();
 	});
@@ -56,24 +58,42 @@
 		this.articles = articles;
 	});
 	
-	app.controller('PanelController', function() {
-		this.tab = 1;
-		
-		this.selectTab = function(setTab) {
-			this.tab = setTab;
-		};
-		
-		this.isSelected = function(checkTab) {
-			return this.tab === checkTab;
-		}
-	});
-	
 	app.controller('CommentController', function() {
 		this.comment = {};
 		
 		this.addComment = function(article) {
 			article.comments.push(this.comment);
 			this.comment = {};
+		};
+	});
+	// ---------------
+	// Controllers End
+	
+	// Custom directives
+	// -----------------
+	app.directive('articleTitle', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'article-title.html'
+		};
+	});
+	
+	app.directive('articlePanels', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'article-panels.html',
+			controller: function() {
+				this.tab = 1;
+				
+				this.selectTab = function(setTab) {
+					this.tab = setTab;
+				};
+				
+				this.isSelected = function(checkTab) {
+					return this.tab === checkTab;
+				}
+			},
+			controllerAs: 'panel'
 		};
 	});
 })();
