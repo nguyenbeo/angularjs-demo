@@ -9,8 +9,8 @@ This demo is to create a simple blog with the following features:
 
 
 # Technologies
-* Angularjs
-* Bootstrap
+* Angularjs 1.4.7
+* Bootstrap 3.3.5
 * Embedded Jetty
 
 # How to run

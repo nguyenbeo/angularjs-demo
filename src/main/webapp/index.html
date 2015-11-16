@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="blog">
 <head>
 <meta charset="UTF-8">
 <title>Angularjs Demo</title>
@@ -8,9 +8,24 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
 	integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
 	crossorigin="anonymous">
+
+<!-- Angularjs -->	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+<script src="js/blog.js"></script>
 </head>
-<body>
+<body ng-controller="BlogController as blog">
 	<h2>Angularjs Demo - A blog page</h2>
+	<h3>Today is {{currentDate | date:'yyyy-MM-dd'}}</h3>
+	<hr/>
+	<div ng-controller="PostController as post">
+		<div ng-repeat="article in post.articles" ng-show="article.isPublished">
+			<h4>{{article.title}}</h4>
+			<p><em>Posted by: {{article.author}}, Posted date: {{article.date}}</em></p>
+			<p>{{article.content}}</p>
+			<hr/>
+		</div>
+	</div>
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script
