@@ -8,7 +8,19 @@
 	    	"content": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
 	    	"date": "2015-11-14",
 	    	"isPublished" : true,
-	    	"noOfVisits" : 1000
+	    	"noOfVisits" : 1000,
+	    	"comments": [
+		         {
+		        	 "subject": "Nice article",
+		        	 "author": "Nguyen Beo",
+		        	 "body": "This is an amazing article"
+		         },
+		         {
+		        	 "subject": "Thanks for your sharing",
+		        	 "author": "Nguyen Binh Nguyen",
+		        	 "body": "This demo is so awesome"
+		         }
+	    	]
 	    },
 	    {
 	    	"title": "Donec pede justo, fringilla vel",
@@ -54,5 +66,14 @@
 		this.isSelected = function(checkTab) {
 			return this.tab === checkTab;
 		}
+	});
+	
+	app.controller('CommentController', function() {
+		this.comment = {};
+		
+		this.addComment = function(article) {
+			article.comments.push(this.comment);
+			this.comment = {};
+		};
 	});
 })();

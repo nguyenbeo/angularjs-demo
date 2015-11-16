@@ -3,7 +3,6 @@ Some demos on Angular.js including Controller, Directives, Form and Services
 
 This demo is to create a simple blog with the following features:
 * A landing page of a blog showing a list of articles
-* A blog form to create new article
 * Comments for each article
 * Comment form to create new comment on a particular article
 
@@ -14,6 +13,8 @@ This demo is to create a simple blog with the following features:
 * Embedded Jetty
 
 # How to run
+* You can even run the index.html file directly
+
 * Run:
 
 mvn package
