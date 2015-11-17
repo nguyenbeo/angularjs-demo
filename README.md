@@ -1,5 +1,9 @@
 # angularjs-demo
-Some demos on Angular.js including Controller, Directives, Form and Services
+Some demos on Angular.js including: 
+* Controller
+* Build-in directives and custom directives
+* Form, model and validation
+* Services and dependency injection
 
 This demo is to create a simple blog with the following features:
 * A landing page of a blog showing a list of articles
@@ -13,8 +17,6 @@ This demo is to create a simple blog with the following features:
 * Embedded Jetty
 
 # How to run
-* You can even run the index.html file directly without starting up server.
-
 * Run:
 
 mvn package

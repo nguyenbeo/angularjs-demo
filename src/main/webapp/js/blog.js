@@ -1,7 +1,8 @@
 (function() {
 	var app = angular.module('blog', [ 'blog-article' ]);
 	
-	var articles = [
+	// Moved to articles.json
+	/*var articles = [
 	    {
 	    	"title": "Cum sociis natoque penatibus et magnis dis parturient montes",
 	    	"author": "Tester 1",
@@ -46,7 +47,7 @@
 	    	"isPublished" : false,
 	    	"noOfVisits" : 0
 	    }
-	];
+	];*/
 
 	// Controllers
 	// -----------
@@ -54,9 +55,15 @@
 		$scope.currentDate = new Date();
 	});
 	
-	app.controller('PostController', function() {
-		this.articles = articles;
-	});
+	// Here is using Dependency Injection to inject built-in $http service
+	app.controller('PostController', ['$http', '$location', function($http, $location) {
+		var post = this;
+		post.articles = [ ];
+		
+		$http.get('articles.json').success(function(data){
+			post.articles = data;
+		});
+	}]);
 	
 	app.controller('CommentController', function() {
 		this.comment = {};
